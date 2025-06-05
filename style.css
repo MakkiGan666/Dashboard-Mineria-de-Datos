@@ -1,0 +1,167 @@
+/* Generalmente, un reset básico ayuda a tener un punto de partida consistente */
+* {
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho/alto */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Fuente base */
+    background-color: #f0f2f5; /* Fondo ligero para ver mejor los bloques */
+    display: flex; /* Para centrar el contenido principal o manejar el layout de alto nivel */
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+}
+
+/* ---------------------------------------------------- */
+/* Estilos para diferenciar dimensiones de cada clase */
+/* ---------------------------------------------------- */
+
+/* Estilos de Contenedores Principales */
+.main-header {
+    background-color: #ffffff;
+    border: 2px solid #3498db; /* Azul para el header */
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    border: 1px dashed #2980b9; /* Azul más oscuro para el logo */
+    padding: 5px;
+}
+
+.main-nav {
+    border: 1px dashed #8e44ad; /* Púrpura para la navegación */
+    padding: 5px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    border: 1px dotted #9b59b6; /* Púrpura más claro para cada item de navegación */
+    margin-left: 15px;
+    padding: 5px 10px;
+}
+
+.dashboard-content {
+    background-color: #ecf0f1; /* Gris claro para el contenido principal */
+    border: 2px solid #e67e22; /* Naranja para el contenido principal */
+    display: flex; /* Esto es crucial para organizar las secciones principales */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay espacio */
+    gap: 20px; /* Espacio entre las secciones principales */
+    padding: 20px;
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+}
+
+.kpi-section {
+    background-color: #ffffff;
+    border: 2px solid #2ecc71; /* Verde para la sección de KPIs */
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espacio entre las tarjetas KPI */
+    margin-bottom: 20px; /* Espacio debajo de la sección KPI */
+    flex: 1 1 100%; /* Ocupa todo el ancho disponible */
+}
+
+.kpi-card {
+    background-color: #f7f7f7;
+    border: 1px solid #27ae60; /* Verde oscuro para cada tarjeta KPI */
+    padding: 15px;
+    text-align: center;
+    flex: 1 1 auto; /* Permite que las tarjetas se ajusten y crezcan */
+    min-width: 150px; /* Ancho mínimo para cada tarjeta */
+}
+
+.date-range-picker {
+    background-color: #f7f7f7;
+    border: 1px solid #f39c12; /* Amarillo/naranja para el selector de fecha */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto; /* Empuja el selector de fecha a la derecha si está dentro de un flex container */
+}
+
+
+.charts-section {
+    background-color: #ffffff;
+    border: 2px solid #9b59b6; /* Púrpura para la sección de gráficos */
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los gráficos se ajusten en varias filas */
+    gap: 20px; /* Espacio entre los contenedores de gráficos */
+    flex: 3; /* Hace que la sección de gráficos sea más grande que la sidebar */
+    min-width: 60%; /* Ancho mínimo para esta sección */
+}
+
+.chart-card {
+    background-color: #f7f7f7;
+    border: 1px solid #8e44ad; /* Púrpura más oscuro para cada tarjeta de gráfico */
+    padding: 15px;
+    flex: 1 1 calc(50% - 20px); /* Dos gráficos por fila, restando el gap */
+    min-width: 300px; /* Ancho mínimo para cada gráfico */
+}
+
+/* Ajustes específicos para los gráficos en la imagen */
+/*.daily-traffic, .daily-purchases-revenue, .weekly-traffic{
+    /* Pueden compartir estilos similares si son de tamaño comparable */
+
+
+.daily-traffic-by-channels {
+    flex: 1 1 calc(100% - 20px); /* Este gráfico parece ocupar todo el ancho */
+}
+
+.monthly-traffic {
+    flex: 1 1 calc(50% - 20px); /* Este gráfico comparte espacio con otro */
+}
+
+
+.sidebar {
+    background-color: #ffffff;
+    border: 2px solid #c0392b; /* Rojo para la barra lateral */
+    padding: 15px;
+    flex: 1; /* Hace que la sidebar sea más pequeña que la sección de gráficos */
+    min-width: 280px; /* Ancho mínimo para la sidebar */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los módulos de la sidebar */
+}
+
+.session-default-channel-group,
+.device-category,
+.help-section {
+    background-color: #f7f7f7;
+    border: 1px solid #e74c3c; /* Rojo más oscuro para los módulos de la sidebar */
+    padding: 15px;
+}
+
+.device-category label {
+    display: block; /* Cada checkbox en su propia línea */
+    margin-bottom: 5px;
+}
+
+.main-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    border: 2px solid #1abc9c; /* Turquesa para el footer */
+    margin-top: 10px;
+}
+
+/* Opcional: Estilo para los placeholders de canvas */
+canvas {
+    width: 100% !important; /* Forzar el ancho del canvas para que se vea */
+    height: 200px; /* Altura de ejemplo para que se vea el espacio del gráfico */
+    background-color: #ecf0f1; /* Color para los placeholders de gráficos */
+    border: 1px dashed #95a5a6; /* Borde para el placeholder */
+    display: block; /* Evita espacio extra debajo del canvas */
+    margin-top: 10px;
+}
