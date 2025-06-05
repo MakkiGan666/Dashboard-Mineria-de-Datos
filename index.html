@@ -3,12 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
+    <header class="main-header">
+        <div class="logo">
+            <h1>COUPPLER.IO</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Overview</a></li>
+                <li><a href="#">Acquisition</a></li>
+                <li><a href="#">Geo view</a></li>
+                <li><a href="#">Behavior</a></li>
+                <li><a href="#">Key events</a></li>
+                <li><a href="#" class="active">Setup dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-content">
+        <section class="kpi-section">
+            <div class="kpi-card total-users">
+                <h2>Total users</h2>
+                <p>81,35K</p>
+            </div>
+            <div class="kpi-card new-users">
+                <h2>New users</h2>  
+                <p>57,04K</p>
+            </div>
+            <div class="kpi-card sessions">
+                <h2>Sessions</h2>
+                <p>100,81K</p>
+            </div>
+            <div class="kpi-card purchases">
+                <h2>Purchases</h2>
+                <p>1,81K</p>
+            </div>
+            <div class="kpi-card revenue">
+                <h2>Revenue</h2>
+                <p>12,64K</p>
+            </div>
+            <div class="date-range-picker">
+                <span>06/04/2025</span>
+                <span>07/05/2025</span>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <div class="chart-card daily-traffic">
+                <h2>Recent Daily Traffic</h2>
+                <canvas id="dailyTrafficChart"></canvas>
+            </div>
+
+            <div class="chart-card daily-purchases-revenue">
+                <h2>Recent Daily Purchases & Revenue</h2>
+                <canvas id="dailyPurchasesRevenueChart"></canvas>
+            </div>
+
+            <div class="chart-card weekly-traffic">
+                <h2>Weekly Traffic for Last 6 Months</h2>
+                <canvas id="weeklyTrafficChart"></canvas>
+            </div>
+
+            <div class="chart-card daily-traffic-by-channels">
+                <h2>Recent Daily Traffic by Channels</h2>
+                <canvas id="dailyTrafficChannelsChart"></canvas>
+            </div>
+
+            <div class="chart-card monthly-traffic">
+                <h2>Monthly Traffic for Last 12 Months</h2>
+                <canvas id="monthlyTrafficChart"></canvas>
+            </div>
+            
+        </section>
+
+        <aside class="sidebar">
+            <div class="session-default-channel-group">
+                <h3>Session default channel group</h3>
+                <select>
+                    <option>Todas</option>
+                    </select>
+            </div>
+            <div class="device-category">
+                <h3>Device category</h3>
+                <label><input type="checkbox" checked> En blanco</label>
+                <label><input type="checkbox"> desktop</label>
+                <label><input type="checkbox"> mobile</label>
+                <label><input type="checkbox"> smart tv</label>
+                <label><input type="checkbox"> tablet</label>
+            </div>
+            <div class="help-section">
+                <h3>Have questions?</h3>
+                <img src="placeholder_image.png" alt="Help avatar"> <p><a href="#">Dashboard setup guide</a></p>
+                <p><a href="#">Book a demo</a></p>
+                <p><a href="#">Contact support</a></p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="main-footer">
+        <p>Connect 70+ data sources with Coupler.io</p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
