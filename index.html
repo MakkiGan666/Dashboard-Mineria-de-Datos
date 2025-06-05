@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Web Analytics Dashboard - Coupler.io</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+
     <header class="main-header">
         <div class="logo">
-            <h1>COUPPLER.IO</h1>
+            <i class="fas fa-chart-line"></i> <h1>WEB ANALYTICS DASHBOARD</h1>
+            <p>COUPLER.IO</p>
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="#">Overview</a></li>
+                <li><a href="#" class="active">Overview</a></li>
                 <li><a href="#">Acquisition</a></li>
                 <li><a href="#">Geo view</a></li>
                 <li><a href="#">Behavior</a></li>
                 <li><a href="#">Key events</a></li>
-                <li><a href="#" class="active">Setup dashboard</a></li>
+                <li><a href="#">Setup dashboard</a></li>
             </ul>
         </nav>
     </header>
@@ -31,7 +34,7 @@
                 <p>81,35K</p>
             </div>
             <div class="kpi-card new-users">
-                <h2>New users</h2>  
+                <h2>New users</h2>
                 <p>57,04K</p>
             </div>
             <div class="kpi-card sessions">
@@ -49,66 +52,64 @@
             <div class="date-range-picker">
                 <span>06/04/2025</span>
                 <span>07/05/2025</span>
-            </div>
+                <i class="fas fa-calendar-alt"></i> </div>
         </section>
 
-        <section class="charts-section">
-            <div class="chart-card daily-traffic">
-                <h2>Recent Daily Traffic</h2>
-                <canvas id="dailyTrafficChart"></canvas>
-            </div>
+        <div class="main-dashboard-area"> <section class="charts-section">
+                <div class="chart-card daily-traffic">
+                    <h2>Recent Daily Traffic</h2>
+                    <canvas id="dailyTrafficChart"></canvas>
+                </div>
+                <div class="chart-card daily-purchases-revenue">
+                    <h2>Recent Daily Purchases & Revenue</h2>
+                    <canvas id="dailyPurchasesRevenueChart"></canvas>
+                </div>
+                <div class="chart-card weekly-traffic">
+                    <h2>Weekly Traffic for Last 6 Months</h2>
+                    <canvas id="weeklyTrafficChart"></canvas>
+                </div>
+                <div class="chart-card daily-traffic-by-channels">
+                    <h2>Recent Daily Traffic by Channels</h2>
+                    <canvas id="dailyTrafficChannelsChart"></canvas>
+                </div>
+                <div class="chart-card monthly-traffic">
+                    <h2>Monthly Traffic for Last 12 Months</h2>
+                    <canvas id="monthlyTrafficChart"></canvas>
+                </div>
+            </section>
 
-            <div class="chart-card daily-purchases-revenue">
-                <h2>Recent Daily Purchases & Revenue</h2>
-                <canvas id="dailyPurchasesRevenueChart"></canvas>
-            </div>
-
-            <div class="chart-card weekly-traffic">
-                <h2>Weekly Traffic for Last 6 Months</h2>
-                <canvas id="weeklyTrafficChart"></canvas>
-            </div>
-
-            <div class="chart-card daily-traffic-by-channels">
-                <h2>Recent Daily Traffic by Channels</h2>
-                <canvas id="dailyTrafficChannelsChart"></canvas>
-            </div>
-
-            <div class="chart-card monthly-traffic">
-                <h2>Monthly Traffic for Last 12 Months</h2>
-                <canvas id="monthlyTrafficChart"></canvas>
-            </div>
-            
-        </section>
-
-        <aside class="sidebar">
-            <div class="session-default-channel-group">
-                <h3>Session default channel group</h3>
-                <select>
-                    <option>Todas</option>
-                    </select>
-            </div>
-            <div class="device-category">
-                <h3>Device category</h3>
-                <label><input type="checkbox" checked> En blanco</label>
-                <label><input type="checkbox"> desktop</label>
-                <label><input type="checkbox"> mobile</label>
-                <label><input type="checkbox"> smart tv</label>
-                <label><input type="checkbox"> tablet</label>
-            </div>
-            <div class="help-section">
-                <h3>Have questions?</h3>
-                <img src="placeholder_image.png" alt="Help avatar"> <p><a href="#">Dashboard setup guide</a></p>
-                <p><a href="#">Book a demo</a></p>
-                <p><a href="#">Contact support</a></p>
-            </div>
-        </aside>
+            <aside class="sidebar">
+                <div class="session-default-channel-group">
+                    <h3>Session default channel group</h3>
+                    <select>
+                        <option>Todas</option>
+                        <option>Direct</option>
+                        <option>Organic Search</option>
+                        <option>Email</option>
+                        </select>
+                </div>
+                <div class="device-category">
+                    <h3>Device category</h3>
+                    <label><input type="checkbox" checked> En blanco</label>
+                    <label><input type="checkbox"> desktop</label>
+                    <label><input type="checkbox"> mobile</label>
+                    <label><input type="checkbox"> smart tv</label>
+                    <label><input type="checkbox"> tablet</label>
+                </div>
+                <div class="help-section">
+                    <h3>Have questions?</h3>
+                    <img src="https://via.placeholder.com/60x60" alt="Help avatar">
+                    <p><a href="#">Dashboard setup guide</a></p>
+                    <p><a href="#">Book a demo</a></p>
+                    <p><a href="#">Contact support</a></p>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <footer class="main-footer">
         <p>Connect 70+ data sources with Coupler.io</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
-</body>
+    </body>
 </html>
