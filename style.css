@@ -1,4 +1,4 @@
-/* General Reset & Base Styles */
+/* General Reset & Base Styles (sin cambios significativos aquí) */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,28 +8,28 @@
 html, body {
     height: 100%;
     overflow: hidden; /* Prevent main page scroll */
-    font-family: 'Inter', Arial, sans-serif; /* Using Inter, replace if needed */
+    font-family: 'Inter', Arial, sans-serif;
     color: #333;
 }
 
 body {
-    background-color: #f0f2f5; /* Light background for the overall page */
+    background-color: #f0f2f5;
     display: flex;
     flex-direction: column;
 }
 
 /* ---------------------------------------------------- */
-/* Header Styles */
+/* Header Styles (sin cambios significativos aquí) */
 /* ---------------------------------------------------- */
 .main-header {
-    background-color: #35478C; /* Dark blue background */
+    background-color: #35478C;
     color: #fff;
-    padding: 15px 25px;
+    padding: 15px 25px; /* Altura aprox. 50-60px */
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    flex-shrink: 0; /* Prevents header from shrinking */
+    flex-shrink: 0;
 }
 
 .logo {
@@ -38,7 +38,7 @@ body {
     gap: 10px;
 }
 
-.logo .fas { /* Style for Font Awesome icon */
+.logo .fas {
     font-size: 1.8em;
     color: #fff;
 }
@@ -53,7 +53,6 @@ body {
     opacity: 0.8;
     margin: 0;
 }
-
 
 .main-nav ul {
     list-style: none;
@@ -75,7 +74,7 @@ body {
 }
 
 .main-nav ul li a.active {
-    background-color: #2b3970; /* Slightly darker blue for active */
+    background-color: #2b3970;
     font-weight: 700;
 }
 
@@ -84,33 +83,31 @@ body {
 /* ---------------------------------------------------- */
 .dashboard-content {
     display: flex;
-    flex-direction: column; /* KPIs arriba, resto del dashboard abajo */
+    flex-direction: column;
     gap: 20px;
-    padding: 20px;
-    flex-grow: 1; /* Main content takes remaining height */
-    overflow-y: auto; /* Allow scrolling within this main area if content overflows */
+    padding: 20px; /* Padding de 20px arriba/abajo/lados */
+    flex-grow: 1; /* Ocupa el espacio restante */
+    overflow-y: auto; /* Permite scroll solo si el contenido EXCEPCIONALMENTE excede la altura */
     overflow-x: hidden;
 }
 
-/* KPI Section */
+/* KPI Section (ajustado ligeramente el padding) */
 .kpi-section {
-    background-color: #f0f2f5; /* Fondo del cuerpo, no de la tarjeta */
+    background-color: #f0f2f5;
     display: flex;
-    flex-wrap: wrap; /* Allows cards to wrap */
-    gap: 15px; /* Spacing between KPI cards */
+    flex-wrap: wrap;
+    gap: 15px;
     align-items: center;
-    flex-shrink: 0; /* Prevent from shrinking */
-    padding-bottom: 5px; /* Pequeño ajuste para separación visual */
-    border-bottom: 1px solid #e0e0e0; /* Delgada línea divisoria */
+    flex-shrink: 0;
 }
 
 .kpi-card {
     border-radius: 8px;
     padding: 15px 20px;
     text-align: left;
-    color: #fff; /* White text on KPI cards */
-    flex: 1 1 18%; /* Allows 5 cards per row, adjust as needed */
-    min-width: 150px; /* Minimum width for responsiveness */
+    color: #fff;
+    flex: 1 1 18%; /* Permite 5 tarjetas por fila */
+    min-width: 150px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
@@ -131,47 +128,61 @@ body {
 }
 
 /* Specific KPI Card Colors */
-.kpi-card.total-users { background-color: #5b47b9; } /* Violeta */
-.kpi-card.new-users { background-color: #4a69bd; }    /* Azul oscuro */
-.kpi-card.sessions { background-color: #00bcd4; }      /* Turquesa */
-.kpi-card.purchases { background-color: #4CAF50; }     /* Verde */
-.kpi-card.revenue { background-color: #f44336; }       /* Rojo */
+.kpi-card.total-users { background-color: #5b47b9; }
+.kpi-card.new-users { background-color: #4a69bd; }
+.kpi-card.sessions { background-color: #00bcd4; }
+.kpi-card.purchases { background-color: #4CAF50; }
+.kpi-card.revenue { background-color: #f44336; }
 
 .date-range-picker {
     background-color: #fff;
     border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    padding: 8px 15px;
+    border-radius: 8px;
+    padding: 15px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    margin-left: auto; /* Pushes to the right */
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     color: #555;
     font-size: 0.9em;
+    flex-shrink: 0;
 }
+
+.date-range-picker span {
+    font-weight: 600; /* Las fechas suelen estar en negrita */
+}
+
 .date-range-picker .fas {
-    color: #999;
+    color: #35478C; /* Color del icono, más vibrante */
+    font-size: 1.2em; /* Tamaño del icono */
 }
 
 /* Main Dashboard Area (Charts + Sidebar) */
 .main-dashboard-area {
     display: flex;
-    gap: 20px; /* Space between charts section and sidebar */
-    flex-grow: 1; /* Takes remaining vertical space */
+    gap: 20px;
+    flex-grow: 1; /* Esto es CLAVE para que ocupe todo el espacio vertical restante */
+    min-height: 0; /* Permite que el flex item se encoja si es necesario */
 }
 
-/* Charts Section */
+/* Charts Section - MODIFICACIONES DE DIMENSIONES AQUI */
 .charts-section {
-    background-color: #f0f2f5; /* Match body background for seamless look */
-    /* No border or box-shadow here, individual cards have them */
-    flex-grow: 1; /* Charts section takes most width */
+    background-color: #f0f2f5;
+    flex-grow: 1; /* Ocupa el espacio horizontal restante */
+    min-width: 0; /* Permite que el flex item se encoja */
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for top row */
-    grid-template-rows: repeat(2, minmax(200px, 1fr)); /* Two rows, flexible height */
-    gap: 20px; /* Space between chart cards */
+    grid-template-columns: repeat(3, 1fr);
+    /* Ajuste de alturas de filas para 1080p:
+       Fila 1 (3 gráficos): ~300px
+       Fila 2 (2 gráficos): ~300px
+       Considerando padding de charts-section y gap entre filas.
+       Usaremos 1fr para que se adapten, pero con un min-height para asegurar visibilidad.
+    */
+    grid-template-rows: 1fr 1fr; /* Cada fila ocupará la mitad del espacio disponible */
+    gap: 20px; /* Espacio entre chart cards */
+    padding: 0; /* Remover padding de charts-section ya que los cards tienen su propio padding */
 }
 
 .chart-card {
@@ -190,40 +201,44 @@ body {
     font-weight: 600;
 }
 
-/* Grid Positioning for Charts */
+/* Grid Positioning for Charts (sin cambios, ya definido el layout) */
 .daily-traffic { grid-column: 1 / 2; grid-row: 1 / 2; }
 .daily-purchases-revenue { grid-column: 2 / 3; grid-row: 1 / 2; }
 .weekly-traffic { grid-column: 3 / 4; grid-row: 1 / 2; }
-.daily-traffic-by-channels { grid-column: 1 / 3; grid-row: 2 / 3; } /* Spans 2 columns */
+.daily-traffic-by-channels { grid-column: 1 / 3; grid-row: 2 / 3; }
 .monthly-traffic { grid-column: 3 / 4; grid-row: 2 / 3; }
 
-/* Canvas Placeholder Styles */
+/* Canvas Placeholder Styles - CLAVE PARA AJUSTAR LA ALTURA DE LOS GRAFICOS */
 canvas {
     width: 100% !important;
-    height: 100% !important; /* Make canvas fill its parent height */
-    min-height: 150px; /* Minimum height for visual */
-    background-color: #fff; /* White background for charts */
+    height: 100% !important; /* Ocupa toda la altura disponible de su card padre */
+    min-height: 180px; /* Una altura mínima para que sean visibles, ajusta según la necesidad */
+    background-color: #fff;
     border: 1px dashed #e0e0e0; /* Subtle border for placeholder */
     display: block;
-    margin-top: auto; /* Pushes canvas down if header takes space */
-    flex-grow: 1; /* Allows canvas to grow to fill card height */
+    margin-top: auto;
+    flex-grow: 1; /* Asegura que el canvas crezca para llenar el espacio */
 }
 
-/* Sidebar Styles */
+
+/* Sidebar Styles (ajustado padding de los módulos y gap) */
 .sidebar {
-    background-color: #f0f2f5; /* Match body background for seamless look */
-    width: 280px; /* Fixed width */
-    flex-shrink: 0; /* Prevents sidebar from shrinking */
+    background-color: #f0f2f5;
+    width: 280px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between sidebar modules */
+    gap: 15px; /* Espacio entre el date-range-picker y los otros módulos */
 }
 
-.sidebar > div { /* Apply general styling to direct children of sidebar (modules) */
+.sidebar > div {
     background-color: #fff;
     border-radius: 8px;
-    padding: 15px;
+    padding: 15px; /* Mantenido 15px */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    flex-grow: 1; /* Permite que los módulos de la sidebar crezcan para llenar el espacio vertical */
+    display: flex; /* Para controlar el contenido interno de cada módulo */
+    flex-direction: column;
 }
 
 .sidebar h3 {
@@ -242,7 +257,7 @@ canvas {
     background-color: #fff;
     font-size: 0.9em;
     color: #555;
-    appearance: none; /* Remove default select arrow */
+    appearance: none;
     background-image: url('data:image/svg+xml;utf8,<svg fill="%23999999" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
     background-repeat: no-repeat;
     background-position: right 8px top 50%;
@@ -259,26 +274,32 @@ canvas {
 
 .device-category input[type="checkbox"] {
     margin-right: 8px;
-    accent-color: #35478C; /* Color de tilde del checkbox */
+    accent-color: #35478C;
+}
+
+.help-section {
+    display: flex; /* Convertir a flex para centrar contenido */
+    flex-direction: column;
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    text-align: center; /* Asegura que el texto también esté centrado */
 }
 
 .help-section img {
-    max-width: 60px; /* Adjusted size */
+    max-width: 60px;
     height: auto;
-    display: block;
-    margin: 15px auto;
+    margin: 15px 0; /* Ajustado margen a 0 y centrado con align-items */
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .help-section p {
-    text-align: center;
     margin-bottom: 5px;
     font-size: 0.9em;
 }
 
 .help-section a {
-    color: #35478C; /* Blue from header */
+    color: #35478C;
     text-decoration: none;
     font-weight: 500;
 }
@@ -286,69 +307,70 @@ canvas {
     text-decoration: underline;
 }
 
-/* Footer Styles */
+/* Footer Styles (sin cambios significativos aquí) */
 .main-footer {
-    background-color: #35478C; /* Match header color */
+    background-color: #35478C;
     color: #fff;
     text-align: center;
     padding: 10px 20px;
     font-size: 0.8em;
-    flex-shrink: 0; /* Prevents footer from shrinking */
+    flex-shrink: 0;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
 
 /* ---------------------------------------------------- */
-/* Responsive Adjustments (Media Queries) */
+/* Media Queries (sin cambios significativos en estos puntos) */
 /* ---------------------------------------------------- */
 
+/* Se mantiene la lógica de media queries, aunque para 1920x1080
+   es probable que caiga en la resolución "desktop" por defecto. */
 @media (max-width: 1400px) {
     .charts-section {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for charts */
-        grid-template-rows: auto auto auto; /* Add another row for wrapping */
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto auto;
     }
     .daily-traffic,
     .daily-purchases-revenue,
     .weekly-traffic,
     .daily-traffic-by-channels,
     .monthly-traffic {
-        grid-column: auto / auto; /* Reset grid column spans */
+        grid-column: auto / auto;
         grid-row: auto / auto;
     }
-    /* Re-assign specific spans if needed */
     .daily-traffic-by-channels {
-        grid-column: 1 / 3; /* This chart still spans 2 columns */
+        grid-column: 1 / 3;
     }
 }
 
 @media (max-width: 1024px) {
     .main-nav ul {
-        gap: 15px; /* Reduce nav item spacing */
+        gap: 15px;
     }
     .kpi-section {
-        justify-content: space-around; /* Better distribution of KPI cards */
+        justify-content: space-around;
     }
     .kpi-card {
-        flex: 1 1 45%; /* Two KPI cards per row */
+        flex: 1 1 45%;
         max-width: 200px;
     }
     .date-range-picker {
-        width: 100%; /* Full width for date picker */
+        width: 100%;
         margin-left: 0;
         justify-content: center;
     }
     .main-dashboard-area {
-        flex-direction: column; /* Stack charts and sidebar vertically */
+        flex-direction: column;
     }
     .sidebar {
-        width: 100%; /* Full width sidebar */
-        order: 1; /* Place sidebar first in column flow if desired, or remove to keep it last */
+        width: 100%;
+        order: 1;
     }
     .charts-section {
-        grid-template-columns: 1fr; /* Single column for all charts */
-        order: 2; /* Place charts section second */
+        grid-template-columns: 1fr;
+        order: 2;
     }
     .daily-traffic-by-channels {
-        grid-column: 1 / 2; /* Reset span to single column */
+        grid-column: 1 / 2;
     }
 }
 
@@ -367,10 +389,10 @@ canvas {
     }
     .kpi-card {
         width: 100%;
-        max-width: 250px; /* A bit larger for single column */
+        max-width: 250px;
     }
     .dashboard-content {
-        padding: 10px; /* Reduce padding on smaller screens */
+        padding: 10px;
         gap: 10px;
     }
     .main-dashboard-area {
