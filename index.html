@@ -10,7 +10,8 @@
 </head>
 <body>
 
-    <header class="main-header" role="banner">
+    <!-- Header semántico con banner y navegación accesible -->
+  <header class="main-header" role="banner">
     <div class="logo">
       <i class="fas fa-chart-line" aria-hidden="true"></i>
       <h1>Web Analytics Dashboard</h1>
@@ -25,60 +26,6 @@
       </ul>
     </nav>
   </header>
-
-  <section class="filters" aria-labelledby="filters-title">
-    <h2 id="filters-title" class="visually-hidden">Filtros del dashboard</h2>
-    <form class="filters__form">
-      <fieldset class="filters__group">
-        <legend>Rango de fechas</legend>
-        <label for="start-date">Desde:</label>
-        <input type="date" id="start-date" name="start-date" value="2025-06-01">
-        <label for="end-date">Hasta:</label>
-        <input type="date" id="end-date" name="end-date" value="2025-06-10">
-      </fieldset>
-      <fieldset class="filters__group">
-        <legend>Categoría de dispositivo</legend>
-        <label for="chk-desktop">
-          <input id="chk-desktop" type="checkbox" name="device" value="desktop" checked>
-          Desktop
-        </label>
-        <label for="chk-mobile">
-          <input id="chk-mobile" type="checkbox" name="device" value="mobile" checked>
-          Mobile
-        </label>
-        <label for="chk-tablet">
-          <input id="chk-tablet" type="checkbox" name="device" value="tablet">
-          Tablet
-        </label>
-      </fieldset>
-      <!-- Aquí continuaremos con las tarjetas KPI -->
-       <section class="kpis" aria-labelledby="kpis-title">
-        <h2 id="kpis-title" class="visually-hidden">Indicadores clave</h2>
-        <div class="kpis__grid">
-          <article class="kpis__card kpis__card--total-users" aria-labelledby="title-total-users">
-            <h3 id="title-total-users" class="kpis__title">Total Users</h3>
-            <p class="kpis__value">81,35K</p>
-            <time class="kpis__date" datetime="2025-06-10">10/06/2025</time>
-          </article>
-          <article class="kpis__card kpis__card--new-users" aria-labelledby="title-new-users">
-            <h3 id="title-new-users" class="kpis__title">New Users</h3>
-            <p class="kpis__value">5,23K</p>
-            <time class="kpis__date" datetime="2025-06-10">10/06/2025</time>
-          </article>
-          <article class="kpis__card kpis__card--sessions" aria-labelledby="title-sessions">
-            <h3 id="title-sessions" class="kpis__title">Sessions</h3>
-            <p class="kpis__value">120,4K</p>
-            <time class="kpis__date" datetime="2025-06-10">10/06/2025</time>
-          </article>
-          <article class="kpis__card kpis__card--bounce-rate" aria-labelledby="title-bounce-rate">
-            <h3 id="title-bounce-rate" class="kpis__title">Bounce Rate</h3>
-            <p class="kpis__value">34.5%</p>
-            <time class="kpis__date" datetime="2025-06-10">10/06/2025</time>
-          </article>
-        </div>
-      </section>
-    </form>
-  </section>
 
     <main class="dashboard-content">
         <section class="kpi-section">
