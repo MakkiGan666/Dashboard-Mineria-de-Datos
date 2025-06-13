@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Analytics Dashboard - Coupler.io</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Analytics Dashboard - Coupler.io</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -29,99 +29,106 @@
   </nav>
 </header>
 
-<main id="main-content" class="dashboard-content" role="main">
-  <section class="kpi-section">
-    <div class="kpi-card total-users">
-      <h2>Total users</h2>
-      <p>81,35K</p>
-    </div>
-    <div class="kpi-card new-users">
-      <h2>New users</h2>
-      <p>57,04K</p>
-    </div>
-    <div class="kpi-card sessions">
-      <h2>Sessions</h2>
-      <p>100,81K</p>
-    </div>
-    <div class="kpi-card purchases">
-      <h2>Purchases</h2>
-      <p>1,81K</p>
-    </div>
-    <div class="kpi-card revenue">
-      <h2>Revenue</h2>
-      <p>12,64K</p>
-    </div>
-  </section>
-
-  <div class="main-dashboard-area">
-    <section class="charts-section">
-      <div class="chart-card daily-traffic">
-        <h2>Recent Daily Traffic</h2>
-        <canvas id="dailyTrafficChart"></canvas>
+<!-- Wrapper for full-viewport layout -->
+<div class="dashboard-container">
+  <main id="main-content" class="dashboard-content" role="main">
+    <!-- KPI cards row -->
+    <section class="kpi-section">
+      <div class="kpi-card total-users">
+        <h2>Total users</h2>
+        <p>81,35K</p>
       </div>
-      <div class="chart-card daily-purchases-revenue">
-        <h2>Recent Daily Purchases & Revenue</h2>
-        <canvas id="dailyPurchasesRevenueChart"></canvas>
+      <div class="kpi-card new-users">
+        <h2>New users</h2>
+        <p>57,04K</p>
       </div>
-      <div class="chart-card weekly-traffic">
-        <h2>Weekly Traffic for Last 6 Months</h2>
-        <canvas id="weeklyTrafficChart"></canvas>
+      <div class="kpi-card sessions">
+        <h2>Sessions</h2>
+        <p>100,81K</p>
       </div>
-      <div class="chart-card daily-traffic-by-channels">
-        <h2>Recent Daily Traffic by Channels</h2>
-        <canvas id="dailyTrafficChannelsChart"></canvas>
+      <div class="kpi-card purchases">
+        <h2>Purchases</h2>
+        <p>1,81K</p>
       </div>
-      <div class="chart-card monthly-traffic">
-        <h2>Monthly Traffic for Last 12 Months</h2>
-        <canvas id="monthlyTrafficChart"></canvas>
+      <div class="kpi-card revenue">
+        <h2>Revenue</h2>
+        <p>12,64K</p>
       </div>
     </section>
 
-    <aside class="sidebar">
-      <!-- Date range picker with slider -->
-            <div class="date-range-picker" aria-labelledby="date-range-title">
-            <h3 id="date-range-title">Fecha</h3>
-            <label for="start-date">Desde:</label>
-            <input type="date" id="start-date" name="start-date" value="2025-06-01">
-            <label for="end-date">Hasta:</label>
-            <input type="date" id="end-date" name="end-date" value="2025-06-10">
-            <div id="date-slider" class="date-range-slider"></div>
+    <!-- Charts and sidebar grid -->
+    <div class="main-dashboard-area">
+      <!-- Charts grid -->
+      <section class="charts-section">
+        <div class="chart-card daily-traffic">
+          <h2>Recent Daily Traffic</h2>
+          <canvas id="dailyTrafficChart"></canvas>
+        </div>
+        <div class="chart-card daily-purchases-revenue">
+          <h2>Recent Daily Purchases & Revenue</h2>
+          <canvas id="dailyPurchasesRevenueChart"></canvas>
+        </div>
+        <div class="chart-card weekly-traffic">
+          <h2>Weekly Traffic for Last 6 Months</h2>
+          <canvas id="weeklyTrafficChart"></canvas>
+        </div>
+        <div class="chart-card daily-traffic-by-channels">
+          <h2>Recent Daily Traffic by Channels</h2>
+          <canvas id="dailyTrafficChannelsChart"></canvas>
+        </div>
+        <div class="chart-card monthly-traffic">
+          <h2>Monthly Traffic for Last 12 Months</h2>
+          <canvas id="monthlyTrafficChart"></canvas>
+        </div>
+      </section>
+
+      <!-- Sidebar with controls and help -->
+      <aside class="sidebar">
+        <!-- Date range picker with slider -->
+        <div class="date-range-picker" aria-labelledby="date-range-title">
+          <h3 id="date-range-title">Fecha</h3>
+          <label for="start-date">Desde:</label>
+          <input type="date" id="start-date" name="start-date" value="2025-06-01">
+          <label for="end-date">Hasta:</label>
+          <input type="date" id="end-date" name="end-date" value="2025-06-10">
+          <div id="date-slider" class="date-range-slider"></div>
         </div>
 
-      <!-- Session default channel group -->
+        <!-- Session default channel group -->
         <div class="session-default-channel-group" aria-labelledby="session-channel-title">
-            <h3 id="session-channel-title">Session default channel group</h3>
-            <select id="session-channel" name="session-channel">
-                <option value="all">Todas</option>
-                <option value="direct">Direct</option>
-                <option value="organic">Organic Search</option>
-                <option value="email">Email</option>
-            </select>
-      </div>
-
-      <!-- Device category filter -->
-        <div class="device-category" aria-labelledby="device-category-title">
-            <h3 id="device-category-title">Device category</h3>
-            <label for="chk-desktop"><input id="chk-desktop" type="checkbox" name="device" value="desktop" checked> Desktop</label>
-            <label for="chk-mobile"><input id="chk-mobile" type="checkbox" name="device" value="mobile" checked> Mobile</label>
-            <label for="chk-tablet"><input id="chk-tablet" type="checkbox" name="device" value="tablet"> Tablet</label>
+          <h3 id="session-channel-title">Session default channel group</h3>
+          <select id="session-channel" name="session-channel">
+            <option value="all">Todas</option>
+            <option value="direct">Direct</option>
+            <option value="organic">Organic Search</option>
+            <option value="email">Email</option>
+          </select>
         </div>
 
+        <!-- Device category filter -->
+        <div class="device-category" aria-labelledby="device-category-title">
+          <h3 id="device-category-title">Device category</h3>
+          <label for="chk-desktop"><input id="chk-desktop" type="checkbox" name="device" value="desktop" checked> Desktop</label>
+          <label for="chk-mobile"><input id="chk-mobile" type="checkbox" name="device" value="mobile" checked> Mobile</label>
+          <label for="chk-tablet"><input id="chk-tablet" type="checkbox" name="device" value="tablet"> Tablet</label>
+        </div>
+
+        <!-- Help section -->
         <div class="help-section" aria-labelledby="help-section-title">
-            <h3 id="help-section-title">Have questions?</h3>
-                <div class="help-section__avatar" role="img" aria-label="Help avatar">
-                <img src="https://via.placeholder.com/60" alt="Help avatar" />
-    </div>
-        <ul class="help-section__list">
+          <h3 id="help-section-title">Have questions?</h3>
+          <div class="help-section__avatar" role="img" aria-label="Help avatar">
+            <img src="https://via.placeholder.com/60" alt="Help avatar">
+          </div>
+          <ul class="help-section__list">
             <li><a href="#">Dashboard setup guide</a></li>
             <li><a href="#">Book a demo</a></li>
-            <li><a href="#">Contact support</a></li>
-        </ul>
+            <li><a href="#">Contact support</a></lli>
+          </ul>
+        </div>
+      </aside>
     </div>
-
-    </aside>
-  </div>
-</main>
+  </main>
+</div>
 
 <footer class="main-footer">
   <p>Connect 70+ data sources with Coupler.io</p>
