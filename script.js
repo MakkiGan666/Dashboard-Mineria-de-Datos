@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Daily Traffic', // Etiqueta para la leyenda
                 data: [3500, 2800, 3200, 2500, 3800, 3000], // Valores de tráfico (ejemplo de datos)
-                borderColor: 'rgb(75, 192, 192)', // Color de la línea
-                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color del área bajo la línea
+                borderColor: '#22C3C1', // Color de la línea
+                backgroundColor: 'rgba(34,195,193,0.2)', // Color del área bajo la línea
                 tension: 0.3, // Suaviza la línea
                 fill: true, // Rellena el área bajo la línea
                 pointRadius: 0 // Oculta los puntos en la línea
@@ -64,72 +64,73 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 2. Gráfico: Recent Daily Purchases & Revenue
+    // 2. Gráfico: Recent Daily Purchases & Revenue (con ejes y y y1)
     new Chart(dailyPurchasesRevenueCtx, {
-        type: 'line',
-        data: {
-            labels: ['06 abr', '13 abr', '20 abr', '27 abr', '04 may', '11 may'], // Misma escala de tiempo
-            datasets: [
-                {
-                    label: 'Purchases', // Primera línea: Compras
-                    data: [70, 65, 80, 55, 90, 75], // Datos de ejemplo para compras
-                    borderColor: 'rgb(255, 99, 132)', // Color rojo/rosa para compras
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    tension: 0.3,
-                    fill: true,
-                    pointRadius: 0
-                },
-                {
-                    label: 'Revenue', // Segunda línea: Ingresos
-                    data: [60, 50, 70, 45, 80, 65], // Datos de ejemplo para ingresos (valores más bajos que compras)
-                    borderColor: 'rgb(54, 162, 235)', // Color azul para ingresos
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    tension: 0.3,
-                    fill: true,
-                    pointRadius: 0
-                }
-            ]
+    type: 'line',
+    data: {
+        labels: ['06 abr', '13 abr', '20 abr', '27 abr', '04 may', '11 may'],
+        datasets: [
+        {
+            label: 'Purchases',
+            data: [70, 65, 80, 55, 90, 75],
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            tension: 0.4,
+            fill: true,
+            pointRadius: 0,
+            yAxisID: 'y'             // ⚠️ usa el eje izquierdo
         },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true, // ¡Mostrar la leyenda esta vez!
-                    position: 'top', // Posición de la leyenda
-                    align: 'start', // Alinear la leyenda a la izquierda
-                    labels: {
-                        boxWidth: 10, // Ancho de la caja de color en la leyenda
-                        font: {
-                            size: 10 // Tamaño de fuente más pequeño para la leyenda
-                        },
-                        padding: 15 // Espacio entre elementos de la leyenda
-                    }
-                },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false,
-                }
-            },
-            scales: {
-                x: {
-                    grid: {
-                        display: false
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.05)'
-                    },
-                    ticks: {
-                        callback: function(value) {
-                            return value + ''; // Deja los valores sin formato K por ahora, o ajusta si es necesario
-                        }
-                    }
-                }
+        {
+            label: 'Revenue',
+            data: [60, 50, 70, 45, 80, 65],
+            borderColor: 'rgb(54, 162, 235)',
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            tension: 0.4,
+            fill: true,
+            pointRadius: 0,
+            yAxisID: 'y1'            // ⚠️ usa el eje derecho
+        }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+        legend: {
+            display: true,
+            position: 'top',
+            align: 'start',
+            labels: {
+            boxWidth: 10,
+            font: { size: 10 },
+            padding: 15,
+            usePointStyle: true
+            }
+        },
+        tooltip: { mode: 'index', intersect: false }
+        },
+        scales: {
+        x: {
+            grid: { display: false }
+        },
+        y: {
+            beginAtZero: true,
+            position: 'left',
+            grid: { color: 'rgba(0,0,0,0.05)' },
+            ticks: {
+            callback: v => v + 'K'
+            }
+        },
+        y1: {
+            beginAtZero: true,
+            position: 'right',
+            grid: { drawOnChartArea: false },
+            ticks: {
+            callback: v => v + '€'
             }
         }
+        }
+    }
     });
 
     // 3. Gráfico: Weekly Traffic for Last 6 Months
@@ -140,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Weekly Traffic',
                 data: [550, 480, 620, 500, 700, 650], // Datos de ejemplo para tráfico semanal
-                borderColor: 'rgb(255, 159, 64)', // Un color naranja para este gráfico
+                borderColor: '#FFB85C', // Un color naranja para este gráfico
                 backgroundColor: 'rgba(255, 159, 64, 0.2)',
                 tension: 0.3,
                 fill: true,
@@ -286,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Monthly Traffic',
                 data: [180000, 200000, 190000, 220000, 210000, 230000, 250000, 240000, 260000, 270000, 280000, 290000], // Datos de ejemplo para tráfico mensual
-                backgroundColor: 'rgb(54, 162, 235, 0.8)', // Color azul de las barras (con un poco de transparencia)
+                backgroundColor: '#007AFF', // Color azul de las barras (con un poco de transparencia)
                 borderColor: 'rgb(54, 162, 235)', // Borde de las barras
                 borderWidth: 1 // Ancho del borde
             }]
